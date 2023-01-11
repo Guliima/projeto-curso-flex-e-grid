@@ -118,7 +118,8 @@ color: #FFFFFF;
 .cartao__conteudo {
     padding: 16px;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
+    gap: 8px;
 }
 
 .cartao__destaque {
