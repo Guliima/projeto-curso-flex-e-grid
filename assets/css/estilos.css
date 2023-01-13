@@ -182,10 +182,20 @@ color: #FFFFFF;
     .principal {
         display: grid;
         grid-template-columns: auto 1fr auto;
+        grid-template-areas: 
+            "titulo-pagina titulo-pagina titulo-pagina"
+            "destaque-video destaque-video videos-reccentes"
+            "secao-videos secao-videos secao-videos"
+            "produtos-recentes  destaque-produtos destaque-produtos"
+            "secao-produtos secao-produtos secao-produtos"
+        ;
         column-gap: 32px;
         padding: 16px 60px;
         grid-column: 2;
-        
+    }
+
+    .titulo-secao {
+        grid-column: span 4;
     }
 }
 
@@ -194,6 +204,10 @@ color: #FFFFFF;
     border-radius: 15px;
     overflow: hidden;
     background-color: #2C343A;
+}
+
+.cartao__imagem--desktop {
+    display: block;
 }
 
 .cartao--destaque {
@@ -270,6 +284,22 @@ color: #FFFFFF;
 }
 
 @media screen and (min-width:1440px) {
+    .cartao--destaque {
+        margin-bottom: 0;
+    }
+    .cartao__imagem--mobile {
+        display: block;
+    }
+
+    .cartao__imagem--desktop {
+        display: block;
+    }
+
+    .cartao__botao--destaque {
+        grid-column: auto;
+        padding: 16px 8px;
+    }
+
     .cartao--recentes {
         display: grid;
         grid-template-columns: auto auto;
@@ -278,6 +308,7 @@ color: #FFFFFF;
         width: 256px;
         padding: 16px;
         box-sizing: border-box;
+        align-self: flex-start;
     }
 
     .cartao--recenter .cartao__titulo {
@@ -325,7 +356,39 @@ color: #FFFFFF;
     gap: 16px;
 }
 
+@media screen and (min-width: 1440px) {
+   .secao {
+        grid-template-columns: repeat(4, 1fr);
+   }
+}
 .titulo-secao {
     font-size: 1.2rem;
     font-weight: 700;
+}
+
+@media screen and (min-width: 1440px) {
+
+    .destaque-video {
+        grid-area: destaque-video;
+    }
+
+    .videos-recentes {
+        grid-area: videos-recentes;
+    }
+
+    .secao-videos {
+        grid-area: secao-videos;
+    }
+
+    .destaque-produto {
+        grid-area: destaque-produto;
+    }
+
+    .produtos-recentes {
+        grid-area: produtos-recentes;
+    }
+
+    .secao-produtos {
+        grid-area: secao-produtos;
+    }
 }
